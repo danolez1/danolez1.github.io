@@ -38,11 +38,11 @@
           <div class="col-md-12 mx-auto">
             <h2 class="section-heading">YouTube <b style="font-family: 'Raleway', sans-serif; "></b>Downloader!</h2>
             <p>Watch and Download Video and Audio from YouTube on your Android Device
-              <a href="com.daniel.apps.yt-downloader.apk" download="YT Downloader.apk" target="_blank"><button class="btn btn-warning" style="cursor: pointer;"  > Click Here to download!</button></a></p>
+              <a href="com.daniel.apps.yt-downloader.apk" download="YT Downloader.apk" onclick="download()" target="_blank"><button class="btn btn-warning" style="cursor: pointer;"  > Click Here to download!</button></a></p>
             <div class="badges">
-              <button class="btn btn-success" > For </button>
+              <button class="btn btn-info" id="visits" > 0 Visits  </button>
 
-              <button class="btn btn-danger" >Free</button>
+              <button class="btn btn-success" id="downloads" > 0 Downloads</button>
             </div> 
           </div>
         </div>
@@ -66,11 +66,44 @@
     <!-- Custom scripts for this template -->
     <script src="js/new-age.min.js"></script>
     <script type="text/javascript">
-    	var file = new File("vendor/storage/db.txt");
-    	file.open("w");
-    	file.write(+1);
-    	file.close();
-    </script>
+    	/*jQuery.get('http://localhost/htdocs/php/test.php?read=true', function(data) {
+        console.log(data);
+        }); read,visit,download*/
+        visit();
+        function visit() {
+        	var visits = document.getElementById('visits');
+        	var downloads = document.getElementById('downloads');
+        	 $.ajax({ 
+    			 async:true,
+                  type: "GET",
+                  url:"https://danolez1.github.io/yt/vendor/storage/test.php?download=true",
+                  timeout:7000,   //timeout to 5s
+                  cache: true
+                   }).done(function(response){
+                   	var json = JSON.parse(response);
+                   	console.log(json.visited);
+                   }).fail(function(response){
+
+                   });
+        }
+        function download() {
+
+        	var visits = document.getElementById('visits');
+        	var downloads = document.getElementById('downloads');
+        	 $.ajax({ 
+        	 	async:true,
+                  type: "GET",
+                  url:"https://danolez1.github.io/yt/vendor/storage/test.php?download=true",
+                  timeout:7000,   //timeout to 5s
+                  cache: true
+                   }).done(function(response){
+                   	var json = JSON.parse(response);
+                   }).fail(function(response){
+
+                   });
+        }
+    			
+    	</script>
   </body>
 
 </html>
