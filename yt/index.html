@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+  <head> 
+
+    
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +40,7 @@
           <div class="col-md-12 mx-auto">
             <h2 class="section-heading">YouTube <b style="font-family: 'Raleway', sans-serif; "></b>Downloader!</h2>
             <p>Watch and Download Video and Audio from YouTube on your Android Device
-              <a href="com.daniel.apps.yt-downloader.apk" download="YT Downloader.apk" onclick="download()" target="_blank"><button class="btn btn-warning" style="cursor: pointer;"  > Click Here to download!</button></a></p>
+              <a href="com.daniel.apps.yt-downloader.apk" download="YT Downloader.apk" id="download_link" target="_blank"><button class="btn btn-warning" style="cursor: pointer;"  > Click Here to download!</button></a></p>
             <div class="badges">
               <button class="btn btn-info" id="visits" > 0 Visits  </button>
 
@@ -56,54 +58,53 @@
 </div>
     <div class="alert alert-warning" style="text-align: center;margin: 0px 0px;cursor: pointer;" >
   <strong>Download !</strong> and share videos and audio !</div>
+<script src="vendor/jquery/jquery.min.js"></script>
+  	<script type="text/javascript">
+    	
+    	document.getElementById("download_link").addEventListener("click",function(){
+    		download();
+    	})
+        	
+         function reload(json) {
+                 var visits = document.getElementById('visits');
+        		var downloads = document.getElementById('downloads');
+        		visits.innerHTML = json.visited+ " visits";
+        		downloads.innerHTML = json.downloaded +" downloaded";
+                }
+        visit();
+        function visit() {
+        	jQuery.get('http://ayocakes.com.ng/dnl/test.php?visit=true', function(data) {
+        		reload(JSON.parse(data));
+        	
+        	});
+        }
+        function download() {
+        	 jQuery.get('http://ayocakes.com.ng/dnl/test.php?download=true', function(data) {
+        	reload(JSON.parse(data));
+        	});
+        }
+         /*$.ajax({ 
+    			 async:true,
+                  type: "GET",
+                  url:"http://ayocakes.com.ng/dnl/test.php?visit=true",
+                  timeout:7000,   //timeout to 5s
+                  cache: true
+                   }).done(function(response){
+                   	//
+                   	console.log(response);
+                   }).fail(function(response){
 
+                   });*/
+    			
+    	</script>
 
     
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="js/new-age.min.js"></script>
-    <script type="text/javascript">
-    	/*jQuery.get('http://localhost/htdocs/php/test.php?read=true', function(data) {
-        console.log(data);
-        }); read,visit,download*/
-        visit();
-        function visit() {
-        	var visits = document.getElementById('visits');
-        	var downloads = document.getElementById('downloads');
-        	 $.ajax({ 
-    			 async:true,
-                  type: "GET",
-                  url:"http://ayocakes.com.ng/dnl/test.php?download=true",
-                  timeout:7000,   //timeout to 5s
-                  cache: true
-                   }).done(function(response){
-                   	var json = JSON.parse(response);
-                   	console.log(json.visited);
-                   }).fail(function(response){
 
-                   });
-        }
-        function download() {
-
-        	var visits = document.getElementById('visits');
-        	var downloads = document.getElementById('downloads');
-        	 $.ajax({ 
-        	 	async:true,
-                  type: "GET",
-                  url:"http://ayocakes.com.ng/dnl/test.php?download=true",
-                  timeout:7000,   //timeout to 5s
-                  cache: true
-                   }).done(function(response){
-                   	var json = JSON.parse(response);
-                   }).fail(function(response){
-
-                   });
-        }
-    			
-    	</script>
   </body>
 
 </html>
