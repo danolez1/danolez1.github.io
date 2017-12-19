@@ -41,7 +41,7 @@
             <p>Watch and Download Video and Audio from YouTube on your Android Device
               <a href="com.daniel.apps.ytdownloader.apk" download="YT Downloader.apk" id="download_link" target="_blank"><button class="btn btn-warning" style="cursor: pointer;"  > Click Here to download!</button></a></p>
             <div class="badges">
-              <button class="btn btn-info" id="visits" > 0 Visits  </button>
+              <!-- <button class="btn btn-info" id="visits" > 0 Visits  </button> -->
 
               <button class="btn btn-success" id="downloads" > 0 Downloads</button>
             </div> 
@@ -75,9 +75,9 @@
     	})
         	
          function reload(json) {
-                 var visits = document.getElementById('visits');
+                 //var visits = document.getElementById('visits');
         		var downloads = document.getElementById('downloads');
-        		visits.innerHTML = json.visited+ " visits";
+        		//visits.innerHTML = json.visited+ " visits";
         		downloads.innerHTML = json.downloaded +" downloads";
                 }
         visit();
