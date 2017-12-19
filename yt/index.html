@@ -26,7 +26,6 @@
     <link rel="apple-touch-icon" href="appicon.png">
 
   </head>
-
   <body id="page-top">
 
     <!-- Navigation -->
@@ -50,13 +49,23 @@
         </div>
       </div>
     </section>
-    <div class="alert alert-info" style="text-align: center;margin: 0px 0px;cursor: pointer;">
-  <strong>First Release : </strong> Version 1.0.2.01. 17, Dec 2017
-</div>
+
+  
     <div class="alert alert-success" style="text-align: center;margin: 0px 0px;cursor: pointer;">
-  <strong>Watch ! </strong> your favourite YouTube content.
-</div>
+      <strong>First Release : </strong> Version 1.0.2.01. 19, Dec 2017 
+      <hr>
+ Bug fix<hr>
+  Change thumbail quality<hr>
+  Country based home videos<hr>
+  Download functionality improved
+  </div>
+    
     <div class="alert alert-warning" style="text-align: center;margin: 0px 0px;cursor: pointer;" >
+  <strong>Beta Release : </strong> Version Beta 17, Dec 2017
+</div>
+      <div class="alert alert-info" style="text-align: center;margin: 0px 0px;cursor: pointer;">
+  <strong>Watch ! </strong> your favourite YouTube content.
+<hr>
   <strong>Download !</strong> and share videos and audio !</div>
 <script src="vendor/jquery/jquery.min.js"></script>
   	<script type="text/javascript">
@@ -73,13 +82,14 @@
                 }
         visit();
         function visit() {
-        	jQuery.get('http://ayocakes.com.ng/dnl/test.php?visit=true', function(data) {
+        	jQuery.get('https://lumiculturefarms.com/dnl/test.php?visit=true', function(data) {
         		reload(JSON.parse(data));
         	
         	});
         }
+        //http://ayocakes.com.ng/dnl/test.php
         function download() {
-        	 jQuery.get('http://ayocakes.com.ng/dnl/test.php?download=true', function(data) {
+        	 jQuery.get('https://lumiculturefarms.com/dnl/test.php?download=true', function(data) {
         	reload(JSON.parse(data));
         	});
         }
